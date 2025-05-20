@@ -5,8 +5,9 @@ export default function (file1, file2) {
   const keys2 = Object.keys(file2);
 
   const unique = getUnique(keys1, keys2);
+  const sorted = unique.sort();
 
-  return unique.map((key) => {
+  return sorted.map((key) => {
     if (!Object.hasOwn(file1, key)) {
       return { key, type: 'added', value: file2[key] };
     }
