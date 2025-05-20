@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "commander": "^14.0.0",
+    "husky": "^9.1.7",
     "jiti": "^2.4.2"
   },
   "devDependencies": {

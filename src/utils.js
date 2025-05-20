@@ -1,15 +1,16 @@
+/* eslint-disable array-callback-return */
 export default function getUnique(...arrays) {
-  const result = []
-  const set = new Set()
+  const result = [];
+  const unique = new Set();
 
-  for (const array of arrays) {
-    for (const value of array) {
-      if (!set.has(value)) {
-        result.push(value)
-        set.add(value)
+  arrays.map((array) => {
+    array.map((value) => {
+      if (!unique.has(value)) {
+        result.push(value);
+        unique.add(value);
       }
-    }
-  }
+    });
+  });
 
-  return result
+  return result;
 }
