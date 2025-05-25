@@ -3,8 +3,8 @@ export default function getUnique(...arrays) {
   const result = [];
   const unique = new Set();
 
-  arrays.map((array) => {
-    array.map((value) => {
+  arrays.forEach((array) => {
+    array.forEach((value) => {
       if (!unique.has(value)) {
         result.push(value);
         unique.add(value);
