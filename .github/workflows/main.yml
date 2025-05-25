@@ -27,3 +27,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+        with:
+          projectKey: notivri_frontend-project-46,
+          organization: notivri
