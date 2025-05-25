@@ -1,8 +1,8 @@
-export default function (file, format) {
+export default function parseFormat(file, format) {
   switch (format) {
-    case "json":
-      return JSON.parse(file)
+    case 'json':
+      return JSON.parse(file);
     default:
-      throw new Error("Unknown format!")
+      throw new Error('Unknown format!');
   }
 }
