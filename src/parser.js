@@ -3,6 +3,6 @@ export default function parseFormat(file, format) {
     case 'json':
       return JSON.parse(file);
     default:
-      throw new Error('Unknown format!');
+      throw new Error(`Unknown format '${format}'`);
   }
 }

@@ -1,4 +1,4 @@
-import getUnique from './utils.js';
+import { getUnique } from './utils.js';
 
 export default function getDifference(file1, file2) {
   const keys1 = Object.keys(file1);

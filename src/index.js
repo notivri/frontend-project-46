@@ -1,5 +1,7 @@
 import * as fs from 'fs';
 import path from 'path';
+
+import { stringify } from './utils.js';
 import parser from './parser.js';
 import getDifference from './getDifference.js';
 import { stylish, plain } from './formatter/index.js';
@@ -14,7 +16,7 @@ function getFileData(filepath) {
   return parser(data, format);
 }
 
-export default function calcDiffs(file1, file2, style = 'stylish') {
+export default function genDiff(file1, file2, style = 'stylish') {
   const file1Path = getFullpath(file1);
   const file2Path = getFullpath(file2);
 
@@ -25,9 +27,9 @@ export default function calcDiffs(file1, file2, style = 'stylish') {
 
   switch (style) {
     case 'stylish':
-      return stylish(diffData);
+      return stringify(stylish(diffData));
     case 'plain':
-      return plain(diffData);
+      return stringify(plain(diffData));
     default:
       throw new Error(`Unknown type of style: ${style}`);
   }
