@@ -1,1 +1,3 @@
-export default function plain() {}
+export default function plain() {
+  return '';
+}
