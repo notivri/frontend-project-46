@@ -10,7 +10,7 @@ const JSONfile2 = './__fixtures__/file2.json';
 const YAMLfile1 = './__fixtures__/file1.yaml';
 const YAMLfile2 = './__fixtures__/file2.yml';
 
-const stylish = fs.readFileSync('__fixtures__/expected.json.txt', { encoding: 'utf-8' }).trim();
+const stylish = fs.readFileSync('__fixtures__/expected.stylish.txt', { encoding: 'utf-8' }).trim();
 const plain = fs.readFileSync('__fixtures__/expected.plain.txt', { encoding: 'utf-8' }).trim();
 
 it('should generate a diff between two files in stylish', () => {
