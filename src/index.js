@@ -3,7 +3,7 @@ import path from 'path';
 
 import parser from './parser.js';
 import getDifference from './getDifference.js';
-import { stylish, plain } from './formatter/index.js';
+import formatter from './formatter/index.js';
 
 const getFullpath = (filepath) => path.resolve(process.cwd(), filepath);
 const getFormat = (filepath) => path.extname(filepath).slice(1);
@@ -24,12 +24,5 @@ export default function genDiff(file1, file2, style = 'stylish') {
 
   const diffData = getDifference(file1Data, file2Data);
 
-  switch (style) {
-    case 'stylish':
-      return stylish(diffData);
-    case 'plain':
-      return plain(diffData);
-    default:
-      throw new Error(`Unknown type of style: ${style}`);
-  }
+  return formatter(diffData, style);
 }
