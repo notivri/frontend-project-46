@@ -1,7 +1,7 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 
-export default function formatter(data, style) {
+export default function styleFormatter(data, style) {
   switch (style) {
     case 'stylish':
       return stylish(data);

@@ -3,6 +3,7 @@ import * as fs from 'fs';
 
 import genDiff from '../src/index.js';
 import parseFormat from '../src/parser.js';
+import styleFormatter from '../src/formatter/index.js';
 
 const JSONfile1 = './__fixtures__/file1.json';
 const JSONfile2 = './__fixtures__/file2.json';
@@ -32,4 +33,5 @@ it('should generate a diff between two files in json', () => {
 
 it('should throw error for unknown format', () => {
   expect(() => parseFormat('nothing', 'some')).toThrow();
+  expect(() => styleFormatter('nothing', 'some')).toThrow();
 });
