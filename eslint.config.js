@@ -12,7 +12,7 @@ export default [
     files: ['**/*.{js}'],
   },
   {
-    ignores: ['dist/'],
+    ignores: ['dist/', '__fixtures__/', '__tests__'],
   },
   {
     languageOptions: {
