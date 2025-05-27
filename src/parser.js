@@ -1,13 +1,13 @@
-import * as YAML from 'js-yaml';
+import * as YAML from "js-yaml"
 
 export default function parseFormat(file, format) {
   switch (format) {
-    case 'json':
-      return JSON.parse(file);
-    case 'yaml':
-    case 'yml':
-      return YAML.load(file);
+    case "json":
+      return JSON.parse(file)
+    case "yaml":
+    case "yml":
+      return YAML.load(file)
     default:
-      throw new Error(`Unknown format '${format}'`);
+      throw new Error(`Unknown format '${format}'`)
   }
 }
