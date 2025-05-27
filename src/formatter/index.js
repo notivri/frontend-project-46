@@ -7,6 +7,8 @@ export default function formatter(data, style) {
       return stylish(data);
     case 'plain':
       return plain(data);
+    case 'json':
+      return JSON.stringify(data);
     default:
       throw new Error(`Unknown type of style: ${style}`);
   }
