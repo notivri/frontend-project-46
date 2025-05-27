@@ -1,4 +1,4 @@
-import { getUnique, isPlainObject } from "./utils.js"
+import { getUnique, isPlainObject } from './utils.js'
 
 export default function getDifference(file1, file2) {
   const keys1 = Object.keys(file1)
@@ -9,23 +9,23 @@ export default function getDifference(file1, file2) {
 
   return sorted.map((key) => {
     if (!Object.hasOwn(file1, key)) {
-      return { key, type: "added", value: file2[key] }
+      return { key, type: 'added', value: file2[key] }
     }
     if (!Object.hasOwn(file2, key)) {
-      return { key, type: "deleted", value: file1[key] }
+      return { key, type: 'deleted', value: file1[key] }
     }
     if (isPlainObject(file1[key]) && isPlainObject(file2[key])) {
-      return { key, type: "nested", children: getDifference(file1[key], file2[key]) }
+      return { key, type: 'nested', children: getDifference(file1[key], file2[key]) }
     }
     if (file1[key] !== file2[key]) {
       return {
         key,
-        type: "changed",
+        type: 'changed',
         from: file1[key],
         to: file2[key],
       }
     }
 
-    return { key, type: "unchanged", value: file2[key] }
+    return { key, type: 'unchanged', value: file2[key] }
   })
 }

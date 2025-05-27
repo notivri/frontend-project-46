@@ -1,13 +1,13 @@
-import stylish from "./stylish.js"
-import plain from "./plain.js"
+import stylish from './stylish.js'
+import plain from './plain.js'
 
 export default function styleFormatter(data, style) {
   switch (style) {
-    case "stylish":
+    case 'stylish':
       return stylish(data)
-    case "plain":
+    case 'plain':
       return plain(data)
-    case "json":
+    case 'json':
       return JSON.stringify(data)
     default:
       throw new Error(`Unknown type of style: ${style}`)
