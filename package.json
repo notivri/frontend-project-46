@@ -16,8 +16,8 @@
   "author": "",
   "license": "ISC",
   "lint-staged": {
-    "**/*": [
-      "eslint --config eslintrc.yaml --fix"
+    "**/*.js": [
+      "eslint --fix"
     ]
   },
   "devDependencies": {
