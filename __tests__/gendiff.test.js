@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import * as fs from 'fs';
 
 import genDiff from '../src/index.js';
