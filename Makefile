@@ -8,4 +8,4 @@ test:
 	npx jest
 
 test-coverage:
-	npx jest --collectCoverageFrom="./src/**/*" --coverage
+	npx jest --coverage
