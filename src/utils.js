@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 
-const spaceCount = 4;
+const isPlainObject = (obj) => obj !== null && typeof obj === 'object' && !Array.isArray(obj);
 
 const getUnique = (...arrays) => {
   const result = [];
@@ -18,16 +18,23 @@ const getUnique = (...arrays) => {
   return result;
 };
 
-const stringify = (data, depth = 0) => {
-  if (typeof data !== 'object' || data === null) {
-    return String(data);
-  }
+const replacer = ' ';
+const signSpace = 2;
+const spacesCount = 4;
 
-  const indent = (lvl) => ' '.repeat(lvl * spaceCount);
-
-  const lines = Object.entries(data).map(([key, value]) => `${indent(depth + 1)}${key}: ${stringify(value, depth + 1)}`);
-
-  return `{\n${lines.join('\n')}\n${indent(depth)}}`;
+const spacing = (depth, isFull = true) => {
+  const size = depth * spacesCount;
+  return isFull ? replacer.repeat(size) : replacer.repeat(size - signSpace);
 };
 
-export { getUnique, stringify };
+const stringify = (data, depth = 0) => {
+  if (!isPlainObject(data)) return String(data);
+
+  const lines = Object.entries(data).map(([key, value]) => `${spacing(depth + 1)}${key}: ${stringify(value, depth + 1)}`);
+
+  return `{\n${lines.join('\n')}\n${spacing(depth)}}`;
+};
+
+export {
+  getUnique, stringify, isPlainObject, spacing,
+};
