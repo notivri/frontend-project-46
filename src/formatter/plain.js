@@ -13,10 +13,10 @@ export default function plain(changeData, path = '') {
     .map((data) => {
       switch (data.type) {
         case 'added': {
-          return `Property '${path}${data.key}' was added with value: ${stringify(data.value, data.key)}`;
+          return `Property '${path}${data.key}' was added with value: ${stringify(data.value)}`;
         }
         case 'changed': {
-          return `Property '${path}${data.key}' was updated. From ${stringify(data.from)} to ${stringify(data.to, data.key)}`;
+          return `Property '${path}${data.key}' was updated. From ${stringify(data.from)} to ${stringify(data.to)}`;
         }
         case 'nested': {
           return plain(data.children, `${path}${data.key}.`);
