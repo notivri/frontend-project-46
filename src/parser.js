@@ -1,6 +1,6 @@
 import * as YAML from 'js-yaml'
 
-export default function parseFormat(file, format) {
+export default function parseFile(file, format) {
   switch (format) {
     case 'json':
       return JSON.parse(file)
