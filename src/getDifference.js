@@ -5,7 +5,7 @@ export default function getDifference(file1, file2) {
   const keys2 = Object.keys(file2)
 
   const unique = getUnique(keys1, keys2)
-  const sorted = unique.sort()
+  const sorted = unique.toSorted((a, b) => a.localeCompare(b))
 
   return sorted.map((key) => {
     if (!Object.hasOwn(file1, key)) {
