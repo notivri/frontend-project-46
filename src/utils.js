@@ -1,19 +1,35 @@
+import * as fs from 'fs'
+import path from 'path'
+
+import parser from './parser.js'
+
 const replacer = ' '
 const signSpace = 2
 const spacesCount = 4
 
 const isPlainObject = obj => obj !== null && typeof obj === 'object' && !Array.isArray(obj)
 
+const getFullpath = filepath => path.resolve(process.cwd(), filepath)
+const getFormat = filepath => path.extname(filepath).slice(1)
+
+const getFileData = (filepath) => {
+  const format = getFormat(filepath)
+  const data = fs.readFileSync(filepath, { encoding: 'utf-8' })
+
+  return parser(data, format)
+}
+
 const getUnique = (...arrays) => {
   const result = []
-  const unique = new Set()
+  const existed = new Set()
 
   arrays.forEach((array) => {
     array.forEach((value) => {
-      if (!unique.has(value)) {
+      if (!existed.has(value)) {
         result.push(value)
-        unique.add(value)
       }
+
+      existed.add(value)
     })
   })
 
@@ -36,9 +52,9 @@ const stylishStringify = (data, depth = 0, format = 'stylish') => {
 
 const plainStringify = (data) => {
   if (isPlainObject(data)) return '[complex value]'
-  if (typeof data === 'string') return `'${data}'`
+  if (typeof data == 'string') return `'${data}'`
 
   return String(data)
 }
 
-export { getUnique, isPlainObject, stylishStringify, plainStringify, spacing }
+export { isPlainObject, getFileData, getFullpath, getUnique, spacing, stylishStringify, plainStringify }
