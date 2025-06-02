@@ -1,8 +1,7 @@
 import globals from 'globals'
 import pluginJs from '@eslint/js'
-
+import pluginJest from 'eslint-plugin-jest'
 import stylistic from '@stylistic/eslint-plugin'
-// import { Linter } from 'eslint'
 
 export default [
   stylistic.configs.recommended,
@@ -10,9 +9,10 @@ export default [
 
   {
     files: ['**/*.{js}'],
+    plugins: { jest: pluginJest },
   },
   {
-    ignores: ['dist/', '__fixtures__/', '__tests__'],
+    ignores: ['dist/'],
   },
   {
     languageOptions: {
@@ -22,4 +22,19 @@ export default [
       },
     },
   },
-] // satisfies Linter.Config[]
+
+  {
+    files: ['**/*.spec.js', '**/*.test.js'],
+    plugins: { jest: pluginJest },
+    languageOptions: {
+      globals: pluginJest.environments.globals.globals,
+    },
+    rules: {
+      'jest/no-disabled-tests': 'warn',
+      'jest/no-focused-tests': 'error',
+      'jest/no-identical-title': 'error',
+      'jest/prefer-to-have-length': 'warn',
+      'jest/valid-expect': 'error',
+    },
+  },
+]
