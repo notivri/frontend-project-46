@@ -1,4 +1,4 @@
-### Hexlet tests and linter status:
+## Hexlet tests and linter status:
 
 [![Actions Status](https://github.com/notivri/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/notivri/frontend-project-46/actions)
 [![main](https://github.com/notivri/frontend-project-46/actions/workflows/main.yml/badge.svg)](https://github.com/notivri/frontend-project-46/actions/workflows/main.yml)
@@ -13,7 +13,6 @@ npm install
 ## Instruction
 
 ```
-gendiff -h
 Usage: gendiff [options] <filepath1> <filepath2>
 
 Compares two configuration files and shows a difference.
