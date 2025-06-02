@@ -7,7 +7,7 @@ const replacer = ' '
 const signSpace = 2
 const spacesCount = 4
 
-const isPlainObject = obj => obj !== null && typeof obj === 'object' && !Array.isArray(obj)
+const isPlainObject = obj => obj !== null && typeof obj === 'object'
 
 const getFullpath = filepath => path.resolve(process.cwd(), filepath)
 const getFormat = filepath => path.extname(filepath).slice(1)
